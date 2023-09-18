@@ -11,7 +11,7 @@ body {
    background-color: beige;
 }
 
-.sizebutton, .clearbutton{
+.size-button, .clear-button, .rainbow-button, .shadow-button{
    width: 200px;
    height: auto;
    background-color: lightblue;
@@ -29,6 +29,10 @@ body {
    height: 512px;
 }
 
+.center {
+   display: flex;
+   justify-content: flex-start;
+}
 .pixel {
    margin: 0px;
 }

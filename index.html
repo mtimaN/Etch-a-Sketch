@@ -9,11 +9,21 @@
 <body>
     <div class="main">
         <div class="buttons">
-            <button onclick="changeSize()" class="sizebutton"> Change Size</button>
-            <button onclick="clearBoard(size)" class="clearbutton"> Clear Board</button>
+            <button onclick="changeSize()" class="size-button"> Change Size</button>
+            <button onclick="clearBoard(size)" class="clear-button"> Clear Board</button>
         </div>
-        <div class="canvas">
-            <script src="scripts/main.js"></script> 
+        <div class="center">
+            <div class="side-buttons">
+                <div class="rainbow-container">
+                    <button onclick="rainbow()" class="rainbow-button">Rainbow</button>
+                <div class="shadow-container">
+                    <button onclick="shadow()" class="rainbow-button">Shadow</button>
+                </div>
+                </div>
+            </div>
+            <div class="canvas">
+                <script src="scripts/main.js"></script> 
+            </div>
         </div>
     </div>
 </body>
