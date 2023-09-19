@@ -27,9 +27,13 @@
                 <script src="scripts/main.js"></script> 
             </div>
         </div>
-        
-        <div class="select-colors">
-            <input onchange="changeColor()" class="color-picker" type="color" value="#000000" />
+        <div class="right-side">
+            <div class="select-colors">
+                <input onclick="changeColor()" onchange="changeColor()" class="color-picker" type="color" value="#000000" />
+            </div>
+            <div class="eraser-container">
+                <button onclick="eraser()" class="eraser-button">Eraser</button>
+            </div>
         </div>
     </div>
 </body>

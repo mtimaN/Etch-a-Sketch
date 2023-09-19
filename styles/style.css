@@ -11,7 +11,7 @@ body {
    background-color: beige;
 }
 
-.size-button, .clear-button, .rainbow-button, .shadow-button{
+button {
    width: 200px;
    height: auto;
    background-color: lightblue;
@@ -56,4 +56,11 @@ body {
    margin: 50px;
    width: 80px;
    height: 80px;
+}
+
+.right-side {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-items: center;
 }

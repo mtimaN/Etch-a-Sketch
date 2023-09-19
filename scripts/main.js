@@ -2,7 +2,7 @@ const DEFAULT_SIZE = 16;
 const DEFAULT_CANVAS_SIZE = 600;
 const DEFAULT_COLOR = "#000000";
 
-var canvas_size = 600;
+var canvas_size = DEFAULT_CANVAS_SIZE;
 var size = DEFAULT_SIZE;
 var color = DEFAULT_COLOR;
 
@@ -47,12 +47,15 @@ function shadow() {
     let pixels = document.getElementsByClassName("pixel");
     for (let i = 0; i < pixels.length; ++i) {
         pixels[i].onmouseover = function() {
-            let string = pixels[i].style.backgroundColor.replace(/rgb\(/g, "");
-            string = string.replace(/\)/g, "");
+            let string = pixels[i].style.backgroundColor.replace(/[a-z]|\(|\)/g, "");
+            console.log(pixels[i].style.backgroundColor);
+            let r = 0, g = 0, b = 0;
             [r, g, b] = string.split(",");
+
             r -= 26;
             g -= 26;
             b -= 26;
+
             if (r < 0)
                 r = 0;
             if (g < 0)
@@ -89,6 +92,20 @@ function changeColor() {
             this.style.backgroundColor = color;
         }
     }
+}
+
+function eraser() {
+    let pixels = document.getElementsByClassName("pixel");
+    for (let i = 0; i < pixels.length; ++i) {
+        pixels[i].onmouseover = function() {
+            this.style.backgroundColor = "#ffffff";
+        }
+    }
+}
+
+window.onbeforeunload = function() {
+    let colorPicker = document.getElementsByClassName("color-picker")[0];
+    colorPicker.value = DEFAULT_COLOR;
 }
 
 createGrid(size);
