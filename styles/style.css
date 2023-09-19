@@ -4,7 +4,7 @@ body {
 
 .main {
    display: flex;
-   flex-direction: column;
+   flex-direction: row;
    align-items: center;
    min-height: 100vh;
    justify-content: flex-start;
@@ -25,14 +25,34 @@ body {
    padding: 0px;
    background-color: white;
    flex-wrap: wrap;
-   width: 512px;
-   height: 512px;
+   width: 600px;
+   height: 600px;
 }
 
 .center {
    display: flex;
-   justify-content: flex-start;
+   flex-direction: column;
 }
+
+.side-buttons {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   width: 30vw;
+}
+
+.buttons {
+   display: flex;
+}
+
 .pixel {
    margin: 0px;
+}
+
+.color-picker {
+   margin: 20px;
+   width: 50px;
+   height: 50px;
 }

@@ -1,5 +1,8 @@
-var canvas_size = 512;
-var size = 16;
+const DEFAULT_SIZE = 16;
+const DEFAULT_CANVAS_SIZE = 600;
+
+var canvas_size = 600;
+var size = DEFAULT_SIZE;
 
 function clearGrid(size) {
     let pixels = document.getElementsByClassName("pixel");
@@ -39,13 +42,12 @@ function createGrid(size) {
 }
 
 function shadow() {
-    clearBoard(size);
     let pixels = document.getElementsByClassName("pixel");
     for (let i = 0; i < pixels.length; ++i) {
         pixels[i].onmouseover = function() {
-            let r = Number(pixels[i].style.backgroundColor.substring(4, 7));
-            let g = Number(pixels[i].style.backgroundColor.substring(9, 12));
-            let b = Number(pixels[i].style.backgroundColor.substring(14, 17));
+            let string = pixels[i].style.backgroundColor.replace(/rgb\(/g, "");
+            string = string.replace(/\)/g, "");
+            [r, g, b] = string.split(",");
             r -= 26;
             g -= 26;
             b -= 26;
@@ -55,14 +57,15 @@ function shadow() {
                 g = 0;
             if (b < 0)
                 b = 0;
-            pixels[i].style.backgroundColor = "#" + (r << 16 | g << 8 | b).toString(16);
+
             console.log(r, g, b);
+            pixels[i].style.backgroundColor = "#" + (r << 16 | g << 8 | b).toString(16);
         }
     }
 }
 
 function rainbow() {
-    clearBoard(size);
+    clearBoard(size);const colorPicker = document.getElementById('colorPicker')
     let pixels = document.getElementsByClassName("pixel");
     console.log(pixels.length);
     for (let i = 0; i < pixels.length; ++i) {
